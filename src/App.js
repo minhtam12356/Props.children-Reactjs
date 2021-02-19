@@ -1,31 +1,30 @@
 import React from 'react';
 import './App.css';
-import Click from './Components/Click';
+import Step from './Components/Click';
 
 class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      text : "You are amazing :v"
+      number : 0
     }
-    this.click = this.click.bind(this);
+    this.click = this.click.bind(this)
   }
 
-  click(){
-    this.state.text.length > 0 && this.setState({
-        text : ""
-      })    
-    this.state.text.length == 0 && this.setState({
-        text : "You are amazing :v"
-      })
-      
+  click(event){
+    event.target.textContent === '-' && this.setState({
+      number : this.state.number-=1
+    })
+    event.target.textContent === '+' && this.setState({
+      number : this.state.number+=1
+    })
   }
 
   render(){
-    const {text} = this.state;
+    let {number} = this.state
     return(
       <div>
-        <Click text={text} click={this.click}/> 
+        <Step number={number} click={this.click}/> 
       </div>
        
     );

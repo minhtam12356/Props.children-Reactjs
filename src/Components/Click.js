@@ -1,14 +1,15 @@
 import React from 'react';
-class Click extends React.Component{
+class Step extends React.Component{
     render(){
-        const {text} = this.props;
         return(
             <div>
-                <button id="toggleMsgBtn" onClick={this.props.click}>Click me</button>
-                <div id="msg">{text}</div>
+                <h2>Step number</h2>
+                <button id="subBtn" onClick={this.props.click}>-</button>
+                <span id="numberPreview">{this.props.number}</span>
+                <button id="plusBtn" onClick={this.props.click}>+</button>
             </div>
         );
     }
 }
 
-export default Click;
+export default Step;
