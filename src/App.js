@@ -1,36 +1,35 @@
 import React from 'react';
 import './App.css';
+import Click from './Components/Click';
+
 class App extends React.Component{
   constructor(){
-    super()
+    super();
     this.state = {
-      valueInput : "",
-      valueP : ""
+      text : "You are amazing :v"
     }
-    this.change = this.changeEvent.bind(this);
+    this.click = this.click.bind(this);
   }
 
-  async changeEvent(event){
-    await new Promise((resolve, reject) => {
-      this.setState({
-        valueInput: event.target.value
-      });
-      resolve();
-    });
-    this.setState({
-      valueP: this.state.valueInput
-    });
-    
+  click(){
+    this.state.text.length > 0 && this.setState({
+        text : ""
+      })    
+    this.state.text.length == 0 && this.setState({
+        text : "You are amazing :v"
+      })
+      
   }
 
   render(){
+    const {text} = this.state;
     return(
       <div>
-        <h2>Binding value</h2>
-        <p id="binding-block" >Hello, {this.state.valueP}</p>
-        <input id="typing-area" type="text" placeholder="Nhap ten cua ban" onChange={this.change}/>
-      </div>     
-    )}
+        <Click text={text} click={this.click}/> 
+      </div>
+       
+    );
+  }
 }
 
 export default App;
