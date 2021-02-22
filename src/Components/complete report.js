@@ -2,10 +2,10 @@ import React from 'react';
 import circle from '../Image/circle.svg';
 import img from '../Image/img.svg';
 import './style.css'
+import PropTypes from 'prop-types';
 
 class report extends React.Component{
     render(){
-        console.log(this.props)
         let {h2, children, p} = this.props;
         return(
             <div id='component'>
@@ -22,6 +22,12 @@ class report extends React.Component{
             </div>
         );
     }
+}
+
+report.propTypes = {
+    h2 : PropTypes.string,
+    children : PropTypes.string,
+    p : PropTypes.string
 }
 
 export default report;
